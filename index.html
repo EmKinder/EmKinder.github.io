@@ -20,8 +20,15 @@
     </head>
     <body>
         <canvas id="app"></canvas>
-        <script src="./node_modules/three/build/three.module.js"></script>
-        <script src="./node_modules/@types/three/examples/jsm/webxr/VRButton.d.ts"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./node_modules/three/build/three.module.js", 
+                "VRButton": "./node_modules/@types/three/examples/jsm/webxr/VRButton.d.ts"
+            }
+        }
+    </script>
+
         <script type="module" src="src/main.js"></script>
 
     </body>
