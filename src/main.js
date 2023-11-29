@@ -1,5 +1,5 @@
 "use strict";
-import * as THREE from 'three'
+import * as THREE from 'https://unpkg.com/three/build/three.module.js'
 import { VRButton } from 'https://unpkg.com/three@latest/examples/jsm/webxr/VRButton.js';
 
 //var http = require('http');
