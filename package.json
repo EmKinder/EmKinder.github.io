@@ -1,0 +1,29 @@
+{
+  "name": "threejstest",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "requirejs": "^2.3.6",
+    "surge": "^0.23.1",
+    "three": "^0.158.0",
+    "threejs-build": "^71.0.0",
+    "threejs-examples": "^60.0.0",
+    "typescript": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/three": "^0.158.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
