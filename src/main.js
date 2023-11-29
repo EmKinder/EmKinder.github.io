@@ -1,7 +1,7 @@
 "use strict";
 import * as THREE from 'https://unpkg.com/three/build/three.module.js'
 import { VRButton } from 'https://unpkg.com/three@latest/examples/jsm/webxr/VRButton.js';
-
+import {XRButton} from 'https://unpkg.com/three@0.158.0/examples/jsm/webxr/XRButton.js';
 //var http = require('http');
 
 
@@ -28,7 +28,7 @@ scene.add(cube);
 var light = new THREE.DirectionalLight(0xFFFFFF, 1);
 light.position.set(0, 4, 2);
 scene.add(light);
-document.body.appendChild(VRButton.createButton(renderer));
+document.body.appendChild(XRButton.createButton(renderer));
 renderer.xr.enabled = true;
 function updateLoop() {
     /* Move rotation controls to a different class */
