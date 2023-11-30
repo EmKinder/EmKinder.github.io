@@ -1,8 +1,9 @@
 "use strict";
 import * as THREE from 'three'
 import { VRButton } from 'VRButton';
-import {Handy} from 'Handy';
+import {Handy} from '../node_modules/three/examples/jsm/webxr/Handy.js';
 import {XRHandModelFactory} from 'XRHandModelFactory';
+
 
 //var http = require('http');
 var width = window.innerWidth;
