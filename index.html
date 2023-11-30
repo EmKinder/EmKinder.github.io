@@ -1,43 +1,35 @@
 <!DOCTYPE html>
-<html lang ="en">
-    <head>
-        <base href="./">
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content = "width=device-width, initial-scale=1.0"/>
-        <title>Three JS Test</title>
-        <style>
-            html, body{
-                margin: 0;
-                height: 100%; 
-            }
-            #app{
-                width: 100%;
-                height: 100%; 
-                display: block;
-            }
-        </style>
+<html lang="en">
+<head>
+    <base href="./">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Three JS Test</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
 
-    </head>
-    <body>
-        <canvas id="app"></canvas>
-        <script type="importmap">
-            {
-                "imports": {
-                    "three": "./node_modules/three/build/three.module.js", 
-                    "VRButton": "./node_modules/three/examples/jsm/webxr/VRButton.js",
-                    "Handy": "./node_modules/three/examples/jsm/webxr/Handy.js",
-                    "XRHandModelFactory": "./node_modules/three/examples/jsm/webxr/XRHandModelFactory.js"
-                }
-            }
-        </script>
-        <script type="module" src="src/main.js"></script>
-        
-
-      <!--  <script type="module" src="/node_modules/three/build/three.module.js"></script>
-        <script type="module" src="/node_modules/three/examples/jsm/webxr/VRButton.js"></script>
-        <script type="module" src="/node_modules/three/examples/jsm/webxr/Handy.js"></script>
-        <script type="module" src="/node_modules/three/examples/jsm/webxr/XRHandModelFactory.js"></script>
-        <script type="module" src="src/main.js"></script>-->
-
-    </body>
+        #app {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas id="app"></canvas>
+<script type="importmap">
+    {
+        "imports": {
+            "three": "./node_modules/three/build/three.module.js",
+            "VRButton": "./node_modules/three/examples/jsm/webxr/VRButton.js",
+            "Handy": "./node_modules/three/examples/jsm/webxr/Handy.js",
+            "XRHandModelFactory": "./node_modules/three/examples/jsm/webxr/XRHandModelFactory.js"
+        }
+    }
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
 </html>
