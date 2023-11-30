@@ -1,7 +1,7 @@
 "use strict";
 import * as THREE from 'three'
 import { VRButton } from 'VRButton';
-import {Handy} from '../node_modules/three/examples/jsm/webxr/Handy.js';
+import {Handy} from '/node_modules/three/examples/jsm/webxr/Handy.js';
 import {XRHandModelFactory} from 'XRHandModelFactory';
 
 
