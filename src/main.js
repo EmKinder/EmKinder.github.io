@@ -1,8 +1,8 @@
 "use strict";
-import * as THREE from 'three'
-import { VRButton } from 'VRButton';
+import * as THREE from '/node_modules/three/build/three.module.js'
+import { VRButton } from '/node_modules/three/examples/jsm/webxr/VRButton.js';
 import {Handy} from '/node_modules/three/examples/jsm/webxr/Handy.js';
-import {XRHandModelFactory} from 'XRHandModelFactory';
+import {XRHandModelFactory} from '/node_modules/three/examples/jsm/webxr/XRHandModelFactory.js';
 
 
 //var http = require('http');
