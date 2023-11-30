@@ -1,8 +1,9 @@
 "use strict";
 import * as THREE from 'three'; // Adjust the path
-import { VRButton } from 'three/examples/jsm/webxr/VRButton.js'; // Adjust the path
-import { Handy } from '../node_modules/three/examples/jsm/webxr/Handy.js'; // Adjust the path
-import { XRHandModelFactory } from 'three/examples/jsm/webxr/XRHandModelFactory.js'; // Adjust the path
+import { VRButton } from 'three/examples/jsm/webxr/VRButton.js'
+import { XRHandModelFactory } from 'three/examples/jsm/webxr/XRHandModelFactory.js'
+//import { Handy } from '../node_modules/three/examples/jsm/webxr/Handy.js'; // Adjust the path
+
 
 
 //var http = require('http');
@@ -50,7 +51,7 @@ window.addEventListener( 'resize', function(){
 
 
 window.THREE = THREE
-window.Handy = Handy
+//window.Handy = Handy
 
 function setupHands(){
     const handModelFactory = new XRHandModelFactory(), 
@@ -73,7 +74,7 @@ function setupHands(){
         ]
         hand.modelIndex = 0
 
-        Handy.makeHandy(hand)
+      //  Handy.makeHandy(hand)
 
         hand.displayFrameAnchor = new THREE.Object3D()
         hand.add(hand.displayFrameAnchor)
