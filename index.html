@@ -20,8 +20,16 @@
     </head>
     <body>
         <canvas id="app"></canvas>
-
-
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "./node_modules/three/build/three.module.js", 
+                    "VRButton": "./node_modules/three/examples/jsm/webxr/VRButton.js",
+                    "Handy": "./node_modules/three/examples/jsm/webxr/Handy.js",
+                    "XRHandModelFactory": "./node_modules/three/examples/jsm/webxr/XRHandModelFactory.js"
+                }
+            }
+        </script>
         <script type="module" src="src/main.js"></script>
 
     </body>

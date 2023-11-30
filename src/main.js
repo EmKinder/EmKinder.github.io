@@ -1,8 +1,8 @@
 "use strict";
-import * as THREE from 'https://unpkg.com/three@latest'
-import { VRButton } from 'https://unpkg.com/three@latest/examples/jsm/webxr/VRButton.js';
-import {Handy} from 'handy.js-master/src/Handy.js';
-import {XRHandModelFactory} from 'https://unpkg.com/three@latest/examples/jsm/webxr/XRHandModelFactory.js';
+import * as THREE from 'three'
+import { VRButton } from 'VRButton';
+import {Handy} from 'Handy';
+import {XRHandModelFactory} from 'XRHandModelFactory';
 
 //var http = require('http');
 var width = window.innerWidth;
@@ -25,8 +25,8 @@ var mainCamera = new THREE.PerspectiveCamera(75, width / height, 0.01, 1000); //
 var scene = new THREE.Scene();
 scene.add(mainCamera)
 
-world = new THREE.Group()
-scene.add( world )
+//world = new THREE.Group()
+//scene.add( world )
 
 renderer.xr.enabled = true;
 document.body.appendChild(VRButton.createButton(renderer));
@@ -86,7 +86,7 @@ function setupHands(){
             hand.models[hand.modelIndex].visible = true
         })
     })
-    return hand
+   // return hand
 }
 
 var geometry = new THREE.BoxGeometry;
