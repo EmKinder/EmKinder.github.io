@@ -131,6 +131,30 @@ class App{
         this.hand1.addEventListener('pinched', evt =>{
             self.cycleHandModel(evt.handedness);
         })
+
+        this.hand2 = this.renderer.xr.getHand(1);
+        this.scene.add(this.hand2);
+        handModelFactory.createHandModel(this.hand2, "boxes")
+        this.handModels.left = [
+            handModelFactory.createHandModel(this.hand2, "boxes"),
+            handModelFactory.createHandModel(this.hand2, "spheres"),
+            handModelFactory.createHandModel(this.hand2, "oculus", {
+                model: "lowpoly"
+            }),
+            handModelFactory.createHandModel(this.hand2, "oculus")
+        ];
+        
+        this.handModels.left.forEach(model =>{
+            model.visible = false;
+            this.hand2.add(model);
+        })
+
+       // const self = this;
+
+        this.handModels.left [this.currentHandModel.left].visible = true;
+        this.hand2.addEventListener('pinched', evt =>{
+            self.cycleHandModel(evt.handedness);
+        })
     }
     
     cycleHandModel( hand ) {
