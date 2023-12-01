@@ -7,7 +7,8 @@ import { OrbitControls } from '../libs/three125/OrbitControls.js';
 class App{
 	constructor(){
 		const container = document.createElement( 'div' );
-				
+		
+        this.handPos = 0;
         this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color( 0x444444 );
 
@@ -128,7 +129,7 @@ class App{
         const self = this;
 
         this.handModels.right [this.currentHandModel.right].visible = true;
-        this.hand1.addEventListener('pinched', evt =>{
+        this.hand1.addEventListener('pinch', evt =>{
             self.cycleHandModel(evt.handedness);
         })
 
@@ -152,10 +153,21 @@ class App{
        // const self = this;
 
         this.handModels.left [this.currentHandModel.left].visible = true;
-        this.hand2.addEventListener('pinched', evt =>{
-            self.cycleHandModel(evt.handedness);
+        this.hand2.addEventListener('pinch', evt =>{
+            self.rotateCube(evt.handedness);
         })
     }
+
+    rotateCube(hand){
+        if(hand.position.x < this.handPos){
+            cube.rotation.x -= 0.1;
+        }
+        else if(hand.position.x > this.handPos){
+            cube.rotation.x += 0.1;
+        }
+        this.handPos = hand.position.x;
+    }
+
     
     cycleHandModel( hand ) {
         this.handModels[ hand ][ this.currentHandModel[ hand ] ].visible = false;
