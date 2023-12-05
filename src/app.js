@@ -7,7 +7,6 @@ import { OrbitControls } from '../libs/three125/OrbitControls.js';
 class App{
 	constructor(){
 		const container = document.createElement( 'div' );
-		
         this.handPos = 0;
         this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color( 0x444444 );
@@ -18,6 +17,10 @@ class App{
 		this.controls = new OrbitControls( this.camera, container );
 		this.controls.target.set( 0, 1.6, 0 );
 		this.controls.update();
+
+        const cubeGeo = new THREE.BoxBufferGeometry(1, 1, 1);
+        const cubeMat = new THREE.MeshPhongMaterial(0xFF00000);
+        const cube = new THREE.Mesh(cubeGeo, cubeMat);
 
 		this.initScene();
 
@@ -57,9 +60,7 @@ class App{
 		light.shadow.mapSize.set( 4096, 4096 );
 		this.scene.add( light );
 
-        const cubeGeo = new THREE.BoxBufferGeometry(1, 1, 1);
-        const cubeMat = new THREE.MeshPhongMaterial(0xFF00000);
-        const cube = new THREE.Mesh(cubeGeo, cubeMat);
+
         cube.position.z = -2; 
         cube.position.y = 1;
         this.scene.add(cube);
