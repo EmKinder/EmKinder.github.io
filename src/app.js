@@ -18,9 +18,6 @@ class App{
 		this.controls.target.set( 0, 1.6, 0 );
 		this.controls.update();
 
-        const cubeGeo = new THREE.BoxBufferGeometry(1, 1, 1);
-        const cubeMat = new THREE.MeshPhongMaterial(0xFF00000);
-        const cube = new THREE.Mesh(cubeGeo, cubeMat);
 
 		this.initScene();
 
@@ -60,10 +57,6 @@ class App{
 		light.shadow.mapSize.set( 4096, 4096 );
 		this.scene.add( light );
 
-
-        cube.position.z = -2; 
-        cube.position.y = 1;
-        this.scene.add(cube);
     }
     
     setupVR(){
@@ -94,6 +87,13 @@ class App{
 
         this.controller1.add( line.clone() );
 		this.controller2.add( line.clone() );
+
+        const cubeGeo = new THREE.BoxBufferGeometry(1, 1, 1);
+        const cubeMat = new THREE.MeshPhongMaterial(0xFF00000);
+        const cube = new THREE.Mesh(cubeGeo, cubeMat);
+        cube.position.z = -2; 
+        cube.position.y = 1;
+        this.scene.add(cube);
         
         //Add hand code here
 
@@ -131,7 +131,8 @@ class App{
 
         this.handModels.right [this.currentHandModel.right].visible = true;
         this.hand1.addEventListener('pinchend', evt =>{
-            self.cycleHandModel(evt.handedness);
+           // self.rotateCube(evt.handedness);
+           cube.rotation.x += 0.5;
         })
 
         this.hand2 = this.renderer.xr.getHand(1);
@@ -155,7 +156,8 @@ class App{
 
         this.handModels.left [this.currentHandModel.left].visible = true;
         this.hand2.addEventListener('pinchend', evt =>{
-            self.rotateCube(evt.handedness);
+            //self.rotateCube(evt.handedness);
+            cube.rotation.x += 0.5;
         })
     }
 
