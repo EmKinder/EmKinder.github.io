@@ -129,7 +129,7 @@ class App{
         const self = this;
 
         this.handModels.right [this.currentHandModel.right].visible = true;
-        this.hand1.addEventListener('pinch', evt =>{
+        this.hand1.addEventListener('pinchend', evt =>{
             self.cycleHandModel(evt.handedness);
         })
 
@@ -153,19 +153,20 @@ class App{
        // const self = this;
 
         this.handModels.left [this.currentHandModel.left].visible = true;
-        this.hand2.addEventListener('pinch', evt =>{
+        this.hand2.addEventListener('pinchend', evt =>{
             self.rotateCube(evt.handedness);
         })
     }
 
     rotateCube(hand){
-        if(hand.position.x < this.handPos){
-            cube.rotation.x -= 0.1;
-        }
-        else if(hand.position.x > this.handPos){
-            cube.rotation.x += 0.1;
-        }
-        this.handPos = hand.position.x;
+        // if(hand.position.x < this.handPos){
+        //     cube.rotation.x -= 0.1;
+        // }
+        // else if(hand.position.x > this.handPos){
+        //     cube.rotation.x += 0.1;
+        // }
+        // this.handPos = hand.position.x;
+        cube.rotation.x += 0.5;
     }
 
     
