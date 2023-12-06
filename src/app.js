@@ -135,6 +135,15 @@ class App{
        //    cube.rotation.x += 0.5;
        // })
 
+       this.hand1.addEventListener( 'pinchstart', evt =>{
+        self.onPinchStartRight();
+       });
+       this.hand1.addEventListener( 'pinchend', () => {
+
+           scaling.active = false;
+
+       } );
+
         this.hand2 = this.renderer.xr.getHand(1);
         this.scene.add(this.hand2);
         handModelFactory.createHandModel(this.hand2, "boxes")
@@ -155,15 +164,10 @@ class App{
        // const self = this;
 
         this.handModels.left [this.currentHandModel.left].visible = true;
-        hand1.addEventListener( 'pinchstart', onPinchStartRight );
-        hand1.addEventListener( 'pinchend', () => {
-
-            scaling.active = false;
-
-        } );
     }
 
-     onPinchStartRight( event ) {
+     
+    onPinchStartRight( event ) {
 
         const controller = event.target;
         const indexTip = controller.joints[ 'index-finger-tip' ];
