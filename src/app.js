@@ -130,10 +130,10 @@ class App{
         const self = this;
 
         this.handModels.right [this.currentHandModel.right].visible = true;
-        this.hand1.addEventListener('pinchend', evt =>{
+        //this.hand1.addEventListener('pinchend', evt =>{
            // self.rotateCube(evt.handedness);
-           cube.rotation.x += 0.5;
-        })
+       //    cube.rotation.x += 0.5;
+       // })
 
         this.hand2 = this.renderer.xr.getHand(1);
         this.scene.add(this.hand2);
@@ -155,10 +155,47 @@ class App{
        // const self = this;
 
         this.handModels.left [this.currentHandModel.left].visible = true;
-        this.hand2.addEventListener('pinchend', evt =>{
-            //self.rotateCube(evt.handedness);
-            cube.rotation.x += 0.5;
-        })
+        hand1.addEventListener( 'pinchstart', onPinchStartRight );
+        hand1.addEventListener( 'pinchend', () => {
+
+            scaling.active = false;
+
+        } );
+    }
+
+     onPinchStartRight( event ) {
+
+        const controller = event.target;
+        const indexTip = controller.joints[ 'index-finger-tip' ];
+        const object = collideObject( indexTip );
+        if ( object ) {
+
+            grabbing = true;
+            indexTip.attach( object );
+            controller.userData.selected = object;
+            console.log( 'Selected', object );
+
+        }
+
+    }
+
+     onPinchEndRight( event ) {
+
+        const controller = event.target;
+
+        if ( controller.userData.selected !== undefined ) {
+
+            const object = controller.userData.selected;
+            object.material.emissive.b = 0;
+            scene.attach( object );
+
+            controller.userData.selected = undefined;
+            grabbing = false;
+
+        }
+
+        scaling.active = false;
+
     }
 
     rotateCube(hand){
