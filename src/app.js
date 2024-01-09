@@ -164,6 +164,16 @@ class App{
        // const self = this;
 
         this.handModels.left [this.currentHandModel.left].visible = true;
+
+        this.createUI();
+    }
+
+    createUI(){
+        this.ui = new CanvasUI();
+        this.ui.updateElement("body", "Hello World");
+        this.ui.update();
+        this.ui.mesh.position.set(0, 1.5, -1.2);
+        this.scene.add(this.ui.mesh);
     }
 
      
