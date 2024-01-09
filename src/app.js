@@ -3,6 +3,7 @@ import { VRButton } from '../libs/VRButton.js';
 import { XRControllerModelFactory } from '../libs/three125/XRControllerModelFactory.js';
 import { XRHandModelFactory } from '../libs/three125/XRHandModelFactory.js';
 import { OrbitControls } from '../libs/three125/OrbitControls.js';
+import { CanvasUI } from '../libs/CanvasUI.js'
 
 class App{
 	constructor(){
@@ -10,6 +11,8 @@ class App{
         this.handPos = 0;
         this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color( 0x444444 );
+        this.ui = new CanvasUI();
+        this.uiEnabled = false;
 
 		this.camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 		this.camera.position.set( 0, 1.6, 3 );
@@ -90,7 +93,7 @@ class App{
 
         const cubeGeo = new THREE.BoxBufferGeometry(1, 1, 1);
         const cubeMat = new THREE.MeshPhongMaterial(0xFF00000);
-        const cube = new THREE.Mesh(cubeGeo, cubeMat);
+        const cube = new THREE.Mesh(cubeGexo, cubeMat);
         cube.position.z = -2; 
         cube.position.y = 1;
         this.scene.add(cube);
@@ -169,12 +172,20 @@ class App{
     }
 
     createUI(){
-        this.ui = new CanvasUI();
+       //this.ui = new CanvasUI();
         this.ui.updateElement("body", "Hello World");
         this.ui.update();
         this.ui.mesh.position.set(0, 1.5, -1.2);
-        this.scene.add(this.ui.mesh);
+        this.scene.add(ui.mesh);
     }
+
+   /* toggleUI( event , isOn){
+        if(isOn != uiEnabled){
+            uiEnabled = isOn;
+            this.ui.updateElemt("body", isOn);
+        }
+
+    }*/
 
      
     onPinchStartRight( event ) {
